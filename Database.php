@@ -9,6 +9,7 @@ interface DatabaseInterface{
     public function selectDb($dbName);
     public function query($sql);
     public function freeResult($ret);
+    public function getLastQuery();
     public function lastErrorNo();
     public function lastError();
     public function tableExists($table);
