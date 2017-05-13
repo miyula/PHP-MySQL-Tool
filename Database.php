@@ -8,7 +8,7 @@ interface DatabaseInterface{
     public function close();
     public function selectDb($dbName);
     public function query($sql);
-    public function freeResult($ret);
+    public function freeResult($ret);   // 仅需要在考虑到返回很大的结果集时会占用多少内存时调用。在脚本结束后所有关联的内存都会被自动释放。(w3school)
     public function getLastQuery();
     public function lastErrorNo();
     public function lastError();
@@ -19,9 +19,9 @@ interface DatabaseInterface{
     public function delete($table, $conds);
     public function insert($table, $values);
     
-    public function fetchObject($ret);
-    public function fetchRow($ret);
-    public function numRows($ret);
+    public function fetchObject($ret);  // 以Ojbect返回结果集
+    public function fetchRow($ret);   // 以Array返回结果集
+    public function numRows($ret);    // 统计返回结果集条数，如果不需要获取具体内容，建议用selectCount
     public function insertId();
     public function affectRows();
     
